@@ -3,12 +3,10 @@ const svgElements = document.querySelectorAll(".bi");
 
 // Função de tratamento de clique
 function toggleColor(event) {
-  console.log("1");
   const svgElement = event.currentTarget;
   const shapes = svgElement.querySelectorAll("path");
 
   shapes.forEach(shape => {
-    console.log("2");
 
     const corAtual = shape.getAttribute("fill");
     console.log(corAtual);
@@ -24,7 +22,27 @@ function toggleColor(event) {
 
 // Adicione um evento de clique a cada elemento SVG
 svgElements.forEach(svgElement => {
-  console.log("3");
   
   svgElement.addEventListener("click", toggleColor);
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const cardItems = document.querySelectorAll(".card");
+  const windowHeight = window.innerHeight;
+  console.log("Altura atual da janela",windowHeight);
+
+  function fadeInElements() {
+    cardItems.forEach((card) => {
+      const itemTop = card.getBoundingClientRect().top;
+
+      if (itemTop > windowHeight) {
+        card.classList.remove("card");
+      } else if (itemTop < windowHeight) { 
+        card.classList.add("card");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", fadeInElements);
 });

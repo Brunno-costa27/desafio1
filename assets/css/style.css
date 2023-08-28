@@ -103,6 +103,12 @@ main {
 .main-container {
     max-width: 1200px;
     margin: 100px auto;
+
+}
+
+.card {
+    opacity: 0;
+    animation: fade 1s ease-in-out forwards; 
 }
 
 .main-container .card {
@@ -116,6 +122,19 @@ main {
     border: none;
 }
 
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(200px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+
+    }
+
+}
+
 .card .card-header {
     display: flex;
     background: #FFFFFF;
@@ -127,21 +146,25 @@ main {
 .card .card-header p {
     font-size: 16px;
     color: #717171;
+
 }
 
 .card .card-header .bi {
     cursor: pointer;
+
 }
 
 .card-content {
     padding: 0px 25px 25px 25px;
     margin-top: 25px;
+
 }
 
 .card-content h1 {
     font-size: 26px;
     font-weight: 400;
     color: #1A202C;
+
 }
 
 
@@ -150,6 +173,7 @@ main {
     font-size: 18px;
     line-height: 32px;
     color: #717171;
+
 }
 
 
